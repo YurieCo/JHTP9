@@ -1,0 +1,76 @@
+import java.awt.Container;
+import javax.swing.JTextArea;
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.ButtonGroup;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+public class Ques14p11 extends JFrame
+{
+    private Container box = new Container();
+    private Container box1 = new Container(); 
+    private Container box2 = new Container();
+    private Container box3 = new Container();
+    private Container box4 = new Container();
+    private Container box5 = new Container();
+    private JTextArea text = new JTextArea(6,10);
+    private JTextArea text1 = new JTextArea(6,10);
+    private JTextArea text2 = new JTextArea(6,10);
+    private JLabel label = new JLabel("Printer: MyPrinter");
+    private final static String[] quality = {"High", "Medium", "Low"};
+    private JComboBox<String> combo = new JComboBox<String>(quality);
+    private JCheckBox imageCheck = new JCheckBox("Image");
+    private JCheckBox textCheck = new JCheckBox("Text");
+    private JCheckBox codeCheck = new JCheckBox("Code");
+    private JRadioButton selectionButton = new JRadioButton("Selection", false);
+    private JRadioButton allButton = new JRadioButton("All", true);
+    private JRadioButton appletButton = new JRadioButton("Applet", false);
+    private JCheckBox printCheck = new JCheckBox("Print to File");
+    private ButtonGroup group = new ButtonGroup();
+    private JLabel printQ = new JLabel("Print Quality:  ");
+    private JButton ok = new JButton("OK");
+    private JButton cancel = new JButton("Cancel");
+    private JButton setup = new JButton("Setup...");
+    private JButton help = new JButton("Help");
+    public Ques14p11()
+    {
+        super("Printer");
+        box.setLayout(new BorderLayout());
+        box1.setLayout(new FlowLayout());
+        box2.setLayout(new GridLayout(3,1,4,4));
+        box5.setLayout(new FlowLayout());
+        box2.add(imageCheck);
+        box2.add(textCheck);
+        box2.add(codeCheck);
+        box1.add(text);
+        box1.add(box2);
+        box1.add(text1);
+        box1.add(box3);
+        box5.add(printQ);
+        box5.add(combo);
+        box5.add(printCheck);
+        box.add(label, BorderLayout.NORTH);
+        box.add(box1, BorderLayout.CENTER);
+        box.add(box5, BorderLayout.SOUTH);
+        add(box, BorderLayout.CENTER); 
+        group.add(selectionButton);
+        group.add(appletButton);
+        group.add(allButton);
+        box3.setLayout(new GridLayout(3,1));
+        box3.add(selectionButton);
+        box3.add(allButton);
+        box3.add(appletButton);
+        box1.add(text2);
+        box4.setLayout(new GridLayout(4,1,8,8));
+        box4.add(ok);
+        box4.add(cancel);
+        box4.add(setup);
+        box4.add(help);
+        add(box4, BorderLayout.EAST);
+    }
+}
